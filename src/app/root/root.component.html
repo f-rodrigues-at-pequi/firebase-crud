@@ -5,15 +5,15 @@
     <fieldset>
       <legend>Login</legend>
       <div>Email</div>
-      <input type="text" [(ngModel)]="email" />
+      <input type="text" name="email" [(ngModel)]="email" />
       <div>Password</div>
-      <input type="password" [(ngModel)]="password">
+      <input type="password" name="password" [(ngModel)]="password">
       <hr />
       <button (click)="auth.emailSignIn(this.email, this.password)">
         Login with e-mail
       </button>
       |
-      <button (click)="auth.googleSignin()">
+      <button (click)="auth.googleSignIn()">
         Login with Google
       </button>
     </fieldset>
@@ -28,4 +28,42 @@
   Logged as <b>{{ auth.user.email }}</b> |
   <button (click)="auth.signOut()">Exit</button>
   <hr />
+  <h2>FirebaseList</h2>
+
+  <div>Titulo Da questao:</div>
+  <div><input [(ngModel)]="formNewName" /></div>
+  <div>index:</div>
+  <div><input type="number" [(ngModel)]="formNewAge" /></div>
+
+  <div>Disciplina:</div>
+  <div><input [(ngModel)]="formNewName" /></div>
+  <div>Lingua:</div>
+  <div><input type="number" [(ngModel)]="formNewAge" /></div>
+
+  <div>Ano:</div>
+  <div><input [(ngModel)]="formNewName" /></div>
+  <div>Contexto:</div>
+  <div><input type="number" [(ngModel)]="formNewAge" /></div>
+
+  <div>Alternativa Correta:</div>
+  <div><input [(ngModel)]="formNewName" /></div>
+  <div>Introducao da Questao:</div>
+  <div><input type="number" [(ngModel)]="formNewAge" /></div>
+
+  <div>Banca:</div>
+  <div><input [(ngModel)]="formNewName" /></div>
+  <br />
+  <button (click)="addItem()">Adicionar</button>
+  <hr />
+  <table style="border: 1;"> 
+    <tr>
+      <th>Nome</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>Comando</th>
+    </tr>
+    <tr *ngFor="let item of list | async">
+
+    </tr>
+  </table>
 </div>

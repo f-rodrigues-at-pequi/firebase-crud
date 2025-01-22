@@ -24,7 +24,7 @@ export class AuthService {
     }
   }
 
-  async googleSignin(){
+  async googleSignIn(){
     try {
       const provider = new firebase.auth.GoogleAuthProvider();
       const credential = await this.auth.signInWithPopup(provider);

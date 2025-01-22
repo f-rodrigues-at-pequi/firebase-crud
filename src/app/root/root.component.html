@@ -1,0 +1,31 @@
+<h1>Angular OnFire</h1>
+
+<div *ngIf="!auth.user">
+  <form>
+    <fieldset>
+      <legend>Login</legend>
+      <div>Email</div>
+      <input type="text" [(ngModel)]="email" />
+      <div>Password</div>
+      <input type="password" [(ngModel)]="password">
+      <hr />
+      <button (click)="auth.emailSignIn(this.email, this.password)">
+        Login with e-mail
+      </button>
+      |
+      <button (click)="auth.googleSignin()">
+        Login with Google
+      </button>
+    </fieldset>
+  </form>
+</div>
+
+<div *ngIf="auth.error" style="color: red">
+  {{ auth.error }}
+</div>
+
+<div *ngIf="auth.user">
+  Logged as <b>{{ auth.user.email }}</b> |
+  <button (click)="auth.signOut()">Exit</button>
+  <hr />
+</div>
